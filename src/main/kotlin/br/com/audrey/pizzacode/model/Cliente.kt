@@ -1,8 +1,8 @@
 package br.com.audrey.pizzacode.model
 
 data class Cliente(
-    val id: Long,
-    val nome: String,
-    val telefone: String,
-    val endereco: String
+    var id: Long,
+    var nome: String,
+    var telefone: String,
+    var endereco: String
 )
