@@ -15,6 +15,8 @@
 - Controle de Versão: Git
 - Dbeaver para gerenciamento do banco de dados
 
+![office](https://miro.medium.com/v2/resize:fit:2000/0*eIhVp0KXrXSSHORN.gif)
+
 
 ### Descrição do Projeto
 A aplicação é um sistema de pedidos de pizza (pizzacode) que permite gerenciar clientes e pedidos de pizza. A aplicação utiliza Spring Boot para criar uma API RESTful e se conecta a um banco de dados MySQL para armazenar os dados.
