@@ -1,5 +1,6 @@
 package br.com.audrey.pizzacode.service
 
+import br.com.audrey.pizzacode.extension.comEnderecoMascarado
 import br.com.audrey.pizzacode.model.Cliente
 import br.com.audrey.pizzacode.repository.ClienteRepository
 import org.springframework.stereotype.Service
@@ -14,11 +15,13 @@ class ClienteService (
     }
 
     fun buscarTodosClientes(nome: String?): List<Cliente> {
-        return if (nome != null) {
+        val clientes = if (nome != null) {
             clienteRepository.findByNomeContaining(nome)
         } else {
             clienteRepository.findAll().toList()
         }
+        return clientes.map { it.comEnderecoMascarado() }
+
     }
 
     fun buscarClientePorTelefone(telefone: String): List<Cliente> {

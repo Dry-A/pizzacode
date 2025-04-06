@@ -9,6 +9,8 @@ import kotlin.annotation.AnnotationTarget
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class RateLimit(
-    val limit: Int = 1,
+    val limit: Int = 3,
     val period: Int = 30, //em segundos
+    val userBased: Boolean = false  // Se true, usa ID do usuário em vez de IP
+
 )

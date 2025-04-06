@@ -3,6 +3,7 @@ package br.com.audrey.pizzacode.controller
 import br.com.audrey.pizzacode.annotation.RateLimit
 import br.com.audrey.pizzacode.controller.request.PostClienteRequest
 import br.com.audrey.pizzacode.controller.request.PutClienteRequest
+import br.com.audrey.pizzacode.extension.comEnderecoMascarado
 import br.com.audrey.pizzacode.extension.toClienteModel
 import br.com.audrey.pizzacode.model.Cliente
 import org.springframework.http.HttpStatus
@@ -18,7 +19,7 @@ class ClienteController(
 
     @GetMapping
     fun buscarTodosClientes(@RequestParam nome: String?): List<Cliente> {
-      return clienteService.buscarTodosClientes(nome)
+        return clienteService.buscarTodosClientes(nome)
     }
 
     @GetMapping("/{id}")
@@ -27,7 +28,7 @@ class ClienteController(
     }
 
     @GetMapping("/telefone")
-    @RateLimit(period = 30)
+    @RateLimit(limit = 3, period = 30, userBased = true)
     fun buscaClientePorTelefone(@RequestParam telefone: String): List<Cliente> {
         return clienteService.buscarClientePorTelefone(telefone)
     }
