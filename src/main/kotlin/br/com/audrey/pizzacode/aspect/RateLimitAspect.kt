@@ -3,14 +3,18 @@ package br.com.audrey.pizzacode.aspect
 import br.com.audrey.pizzacode.annotation.RateLimit
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
+import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.reflect.MethodSignature
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.http.HttpStatus
+import org.springframework.stereotype.Component
 import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.server.ResponseStatusException
 import java.util.concurrent.TimeUnit
 
+@Aspect
+@Component
 class RateLimitAspect(
     private val redisTemplate: RedisTemplate<String, String>,
 ) {
