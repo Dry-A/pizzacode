@@ -28,7 +28,7 @@ class ClienteController(
     }
 
     @GetMapping("/telefone")
-    @RateLimit(limit = 3, period = 30, userBased = true)
+    @RateLimit(limit = 2, period = 30, userBased = true)
     fun buscaClientePorTelefone(@RequestParam telefone: String): List<Cliente> {
         return clienteService.buscarClientePorTelefone(telefone)
     }
