@@ -1,5 +1,6 @@
 package br.com.audrey.pizzacode.controller
 
+import br.com.audrey.pizzacode.annotation.RateLimit
 import br.com.audrey.pizzacode.controller.request.PostClienteRequest
 import br.com.audrey.pizzacode.controller.request.PutClienteRequest
 import br.com.audrey.pizzacode.extension.toClienteModel
@@ -26,6 +27,7 @@ class ClienteController(
     }
 
     @GetMapping("/telefone")
+    @RateLimit(period = 30)
     fun buscaClientePorTelefone(@RequestParam telefone: String): List<Cliente> {
         return clienteService.buscarClientePorTelefone(telefone)
     }
